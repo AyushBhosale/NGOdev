@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     # AbstractUser already has first_name, last_name, email, password
+    date_of_birth = models.DateField(blank=True, null=True)
     pass
 
 class Developer(models.Model):
