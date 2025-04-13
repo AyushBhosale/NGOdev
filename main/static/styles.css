@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  color: #081D45;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left Section */
+.left {
+  width: 60%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 25%;
+  margin-bottom: 30px;
+}
+
+/* Right Section */
+.right {
+  width: 40%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0D7D5F;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* Form Elements */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.login-form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control {
+  width: 50%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #EEEAEA;
+}
+
+.btn {
+  font-family: Outfit, sans-serif;
+  background-color: #0D7D5F;
+  color: #DAD4D4;
+  border: none;
+  width: 30%;
+  height: 49px;
+  border-radius: 83px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0a6a50;
+}
+
+#forgot {
+  text-decoration: none;
+  color: #081D45;
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+#forgot:hover {
+  text-decoration: underline;
+}
+
+.google{
+  width: 10%;
+}
+.google {
+  width: 40px; 
+  margin: 15px auto;
+  display: block;
+}
+
+.login-form h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-form a {
+  display: flex;
+  justify-content: center;
+}

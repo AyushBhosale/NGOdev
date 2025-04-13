@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 AUTH_USER_MODEL = 'user.User'
-load_dotenv(os.path.join(BASE_DIR.parent, '.env'))
+load_dotenv(os.path.join(BASE_DIR, 'main', '.env'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key-for-developmen
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TAILWIND_APP_NAME = 'theme'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Load environment variables from .env file
 # load_dotenv.load_dotenv(os.path.join(BASE_DIR, '.env'))
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -167,9 +168,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
-
-NPM_BIN_PATH = r"C:\nvm4w\nodejs\npm.cmd"
-
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+INTERNAL_IPS = ['127.0.0.1']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type

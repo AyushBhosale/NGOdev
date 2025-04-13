@@ -1,14 +1,43 @@
 {% load static %}
+{% load socialaccount %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Login</title>
 </head>
 <body>
-    <div class="">
-
+<div class="container">
+    <div class="left">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo"> 
+        <div class='login-form'>
+            <h1>SIGN IN TO ACCOUNT</h1>
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+          
+                {{ form.login|add_class:"form-control custom-input" }}
+          
+                {{ form.password|add_class:"form-control custom-input" }}
+                <br>
+                <a href="{% url 'account_reset_password' %}" style="margin-left: 10px;" id="forgot">Forgot your password?</a><br><br>
+          
+                <input type="submit" class="btn" value="Sign in">
+            </form>
+          
+            <h2></h2>
+            <a href="{% provider_login_url 'google' %}?process=login"><img class="logo google" src="{% static "img/google.png" %}" alt=""></a><br>
+        </div>
     </div>
+    
+    <div class="right">
+        <div class="welcome-message">
+            <h1>HELLO!</h1>
+            <p>Your journey continues from here—let’s dive right in.</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
