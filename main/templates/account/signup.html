@@ -1,0 +1,99 @@
+{% load static %}
+{% load socialaccount %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Sign Up</title>
+    <style>
+        /* Additional styles specific to signup page */
+        .signup-form {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center form elements horizontally */
+        }
+        
+        .signup-form .form-control {
+            margin: 8px 0;
+            width: 80%;
+            {% comment %} text-align: center; /* Center text inside inputs */ {% endcomment %}
+        }
+        
+        .signup-form .btn {
+            margin-top: 15px;
+            width: 40%;
+        }
+        
+        h3 {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+        
+        /* Fix the swapped left/right sections */
+        .container .left {
+            width: 60%;
+            text-align: center; /* Center all text content */
+        }
+        
+        .container .right {
+            width: 40%;
+        }
+        
+        .right a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        /* For centering the form elements completely */
+        .signup-form input, 
+        .signup-form select,
+        .signup-form textarea {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Error message styling */
+        .error-message {
+            color: #ff3333;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="right">
+            <h1>WELCOME</h1>
+            <p>To keep connected with us please sign up with your personal details</p>
+            <p>Already have an account? <a href="{% url 'account_login' %}">Sign in</a></p>
+        </div>
+        <div class="left">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            <h1>CREATE ACCOUNT</h1>
+            <form method="post" action="{% url 'account_signup' %}" class="signup-form">
+                {% csrf_token %}
+                {% for field in form %}
+                {{ field|add_class:"form-control custom-input" }}
+                {% if field.errors %}
+                <div class="error-message">{{ field.errors }}</div>
+                {% endif %}
+                {% endfor %}
+                <input type="submit" class="btn" value="Sign up">
+            </form>
+            <h3>OR USE TO SIGN UP</h3>
+            <a href="{% provider_login_url 'google' %}?process=login">
+                <img class="logo google" src="{% static 'img/google.png' %}" alt="Google Sign-up">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
